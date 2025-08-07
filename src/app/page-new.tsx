@@ -11,7 +11,7 @@ export default function Home() {
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
             <div className="text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Hi, I'm{" "}
+                Hi, I&apos;m{" "}
                 <span className="text-blue-600">{personalInfo.name}</span>
               </h1>
               <p className="mt-4 text-xl sm:text-2xl text-gray-600 font-medium">
@@ -131,7 +131,7 @@ export default function Home() {
             Let's Connect
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            I'm always interested in hearing about new opportunities and interesting projects.
+            I&apos;m always interested in hearing about new opportunities and interesting projects.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a

@@ -43,12 +43,12 @@ export default function AboutPage() {
             <div className="text-gray-700 leading-relaxed text-lg space-y-6">
               <p>{personalInfo.bio}</p>
               <p>
-                I'm passionate about creating digital experiences that make a difference. 
-                Whether it's building responsive web applications, optimizing performance, 
+                I&apos;m passionate about creating digital experiences that make a difference. 
+                Whether it&apos;s building responsive web applications, optimizing performance, 
                 or mentoring fellow developers, I find joy in the craft of software development.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new technologies, contributing to 
+                When I&apos;m not coding, you can find me exploring new technologies, contributing to 
                 open source projects, or sharing knowledge with the developer community. I believe 
                 in continuous learning and staying current with industry trends.
               </p>
@@ -149,7 +149,7 @@ export default function AboutPage() {
               Let's Get in Touch
             </h2>
             <p className="text-lg text-gray-600">
-              I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
+              I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology.
             </p>
           </div>
 
