@@ -128,7 +128,7 @@ export default function Home() {
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
-            Let's Connect
+            Let&apos;s Connect
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             I&apos;m always interested in hearing about new opportunities and interesting projects.

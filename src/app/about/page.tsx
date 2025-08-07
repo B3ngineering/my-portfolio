@@ -146,7 +146,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Let's Get in Touch
+              Let&apos;s Get in Touch
             </h2>
             <p className="text-lg text-gray-600">
               I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology.
