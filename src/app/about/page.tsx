@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { personalInfo, skills } from "@/data/portfolio";
+import { personalInfo } from "@/data/portfolio";
 
 export default function AboutPage() {
   return (
@@ -72,11 +72,11 @@ export default function AboutPage() {
               </p>
               <p className="border-l-2 border-matrix-400 pl-4">
                 <span className="text-matrix-400">&gt;&gt;&gt;</span> I think solving hard problems is fun, and I believe that autonomous systems, aerial or otherwise,
-                are some of the hardest problems I'll have the chance to work on. While my focus is software, I bring a unique systems perspective that allows me to see the bigger
+                are some of the hardest problems I&apos;ll have the chance to work on. While my focus is software, I bring a unique systems perspective that allows me to see the bigger
                 picture and tackle complex challenges.
               </p>
               <p className="border-l-2 border-matrix-400 pl-4">
-                <span className="text-matrix-400">&gt;&gt;&gt;</span> I'm known for my structured approach to software and systems development, and strive to 
+                <span className="text-matrix-400">&gt;&gt;&gt;</span> I&apos;m known for my structured approach to software and systems development, and strive to 
                 build robust and maintainable solutions without sacrificing velocity. I have experience working in high-stakes and fast-moving environments, and am always
                  seeking new challenges in the autonomous systems space.
               </p>
@@ -93,7 +93,7 @@ export default function AboutPage() {
               <span className="text-green-300">[</span>ME.LOG<span className="text-green-300">]</span>
             </h2>
             <div className="text-green-300 font-share-tech-mono mb-4">
-              &gt; Other activities and accomplishments that I'm proud of...
+              &gt; Other activities and accomplishments that I&apos;m proud of...
             </div>
           </div>
 
@@ -105,7 +105,7 @@ export default function AboutPage() {
                   &gt; MTG.EXE
                 </h3>
                 <p className="text-green-200 font-jetbrains-mono text-sm">
-                  Former top 1000 Magic: The Gathering player with $2000 in winnings. The world's most complex game according to MIT.
+                  Former top 1000 Magic: The Gathering player with $2000 in winnings. The world&apos;s most complex game according to MIT.
                 </p>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function AboutPage() {
                   &gt; FRUIT.EXE
                 </h3>
                 <p className="text-green-200 font-jetbrains-mono text-sm">
-                  No accomplishment here, I just love fruit. At least I probably won't need sick days.
+                  No accomplishment here, I just love fruit. At least I probably won&apos;t need sick days.
                 </p>
               </div>
             </div>
