@@ -1,0 +1,353 @@
+\documentclass[11pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=1.25 cm, % seperation between body and page edge from the top
+    bottom=1.25 cm, % seperation between body and page edge from the bottom
+    left=1.25 cm, % seperation between body and page edge from the left
+    right=1.25 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 0, 0} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Ben_Young_CV},
+    pdfauthor={Ben Young},
+    pdfcreator={Ben Young},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\pagenumbering{gobble} % no page numbering
+\definecolor{barColor}{RGB}{0, 0, 255} % define a new color for the bars
+\titleformat{\section}
+  {\needspace{4\baselineskip}\bfseries\large} % keep the text formatting
+  {} % no numbering
+  {0pt} % no additional space
+  {} % section title setup
+  [\vspace{1pt}{\color{barColor}\titlerule}] % apply the bar color here
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.2 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=2pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in September 2024}\hspace{\widthof{Last updated in September 2024}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont Benjamin Young
+
+        \vspace{5 pt}
+
+        \normalsize
+        \mbox{\hrefWithoutArrow{mailto:b9young@uwaterloo.ca}{b9young@uwaterloo.ca}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{tel:519-591-3291}{519-591-3291}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/ben-g-young}{LinkedIn}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://github.com/B3ngineering}{Github}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://drive.google.com/file/d/1cM2i9s_le8WwaI9N9boGWSlfCRY0Fn2k/view?usp=sharing}{Portfolio}}%
+        \kern 5.0 pt%
+    \end{header}
+
+    \vspace{5 pt - 0.3 cm}
+
+     \section{Skills}
+    
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Language and Frameworks:} Python, C++, C, C\#, .NET, Robot, Rust, Tensorflow, OpenCV, PyTorch, SQL, Node.js, MongoDB
+            \end{highlights}
+            \begin{highlights}
+                \item \textbf{Tools and Technologies:} Git, Matlab, Simulink, Linux, Windows, ROS, Gazebo, Docker, RTOS
+            \end{highlights}
+        \end{onecolentry}
+
+
+    \section{Education}
+    
+        \begin{twocolentry}{
+            Sept 2021 – April 2026
+        }
+            \textbf{University of Waterloo}, BASc in Systems Design Engineering - \textit{Waterloo, ON, Canada}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item  Computing Option + Intelligent and Automated Systems Specialization
+            \end{highlights}
+        \end{onecolentry}
+    
+    \section{Experience}
+
+         \begin{twocolentry}{
+            June 2024 – August 2024
+        }
+            \textbf{Aerial Robotics Software Intern}, Nightingale Security - \textit{Fremont, CA, USA}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+            \item Integrated drone flight controller with Android Team Awareness Kit (ATAK) using Mavlink and Python routing allowing the USAF to fly Nightingale drones with their existing system
+            \item Developed a Python node to intercept Mavlink commands and send custom Rest API calls to the server, allowing any Mavlink system to run with Nightingale's mission management platform and enabling critical customer demos
+            \item Refactored legacy YoloV3 C++ codebase to YoloV8 in Python and C++ for fast and accurate object detection, identification, and tracking. Trained the custom model for 99\% accurate vehicle and weapons detection.
+            \item Supported development and testing of a UAS simulated testing environment in Gazebo, halving the wait time to test new software changes.
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+        \begin{twocolentry}{
+            Sept 2024 – Dec 2024
+        }
+            \textbf{Software Engineering Intern}, Jaza Energy - \textit{Halifax, NS, CAN}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+            \item Implemented communication firmware in C and C++ for an automated battery pack cycling system, tripling test data collection speed and driving pack quality.
+            \item Developed and researched a new HIL testing system for electric batteries using Renode  for simulated firmware validation and STM board emulation.
+                \item Engineered an LSTM neural network with TensorFlow, Keras and Python to analyze historical battery data and automated continuous retraining to prevent model drift and maintain performance.
+                \item Deployed the solution to a production environment and built data pipelines with PostgreSQL, achieving 99.5\% accuracy in identifying incidents of battery fraud and preventing over \$1000 of weekly profit loss.
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Jan 2024 – Apr 2024
+        }
+            \textbf{Software Engineering Intern}, QEYnet - \textit{Waterloo, ON, CAN}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Built telescope alignment software with Python, OpenCV, and C\# that uses computer vision and GPS for a pointing/guiding system, enabling stable quantum key transmissions with 99.9\% accuracy.
+                \item Implemented C and C\# interfaces for optical lens manipulation to generate secure quantum keys.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            May 2023 – Aug 2023
+        }
+            \textbf{Embedded Software Engineering Intern}, Teledyne Flir - \textit{Waterloo, ON, CAN}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed a real-time, multi-threaded C++ software bridge that integrated the Mavlink messaging protocol (UDP) with the R70 SkyRanger drone, driving sales by improving UAV compatibility with existing fleets.
+                \item Created and managed a comprehensive automated test suite for SkyRanger GPS in Python that evangelized other developers to write defect-free code, increasing development velocity by 60\%.
+                \item Identified, debugged, and patched 27 firmware bugs in C, C++, Python, and Robot prior to the release of a new major version of the SkyRanger drone firmware, allowing for a bug-free release.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Jan 2022 – Apr 2022
+        }
+            \textbf{Quality Engineering Intern}, VTS Lane - \textit{Toronto, ON, CAN}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed Python scripts and applications to automate data analysis reports of test processes, allowing top causes of error to be easily identified and resolved and increasing First Pass Yield by 20\%.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Sep 2022 – Dec 2022
+        }
+            \textbf{Test Systems Development Intern}, Teledyne Flir - \textit{Waterloo, ON, CAN}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed Python scripts and applications to automate data analysis reports of test processes, allowing top causes of error to be easily identified and resolved and increasing First Pass Yield by 20\%.
+            \end{highlights}
+        \end{onecolentry}
+
+
+    
+    \section{Projects}
+        \begin{twocolentry}{
+            Aug 2024 – March 2025
+        }
+            \textbf{Perception Team Lead}, University of Waterloo RoboSub Team - \textit{Waterloo, ON, Canada}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Architecting perception and SLAM software for cameras and IMUs on an autonomous underwater vehicle for University of Waterloo's entry into the 2026 RoboSub competition.
+                \item Leading research and implementation of computer vision algorithms and software with Python, OpenCV, and YoloV8 for identification and analysis of underwater targets and obstacles.
+            \end{highlights}
+        \end{onecolentry}  
+        \begin{twocolentry}{
+            Oct 2024 – Dec 2024
+        }
+            \textbf{Maze Solving Robot} - \textit{Halifax, ON, Canada}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+            Developed a simulated environment to test pathfinding algorithms for the IEEE Micromouse competition.
+            Implemented random maze generation with recursive backtracking, a differential drive robot with ROS2,
+            LiDAR for state-based maze traversal and mapping in C++, and the flood fill and Astar pathfinding algorithms.
+        \end{onecolentry}  
+
+    \section{Other Achievements}
+    
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Physical:} 55 VO2 Max, 225 Bench Press, 19:40 5k, 5:30 mile, 32 inch vertical leap
+            \end{highlights}
+            \begin{highlights}
+                \item \textbf{Games:} \$1000 career earnings from Magic: The Gathering, \$300 career earnings from Super Smash Brothers Ultimate, successfully nuzlocked Pokemon Black on the first try
+            \end{highlights}
+        \end{onecolentry}
+\end{document}

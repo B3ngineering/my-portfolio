@@ -14,16 +14,26 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
             src={experience.image}
             alt={`${experience.title} at ${experience.company || experience.organization}`}
             fill
-            className="object-cover filter brightness-75 contrast-125 group-hover:brightness-100 transition-all duration-300"
+            className="object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50"></div>
         </div>
       )}
       <div className="p-6">
         <div className="flex justify-between items-start mb-3">
           <h3 className="text-xl font-orbitron font-semibold text-matrix-400">
-            &gt; {experience.title.toUpperCase()}
+            &gt; {experience.projectUrl ? (
+              <a
+                href={experience.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-green-300 transition-colors duration-200 hover:underline"
+              >
+                {experience.title.toUpperCase()}
+              </a>
+            ) : (
+              <span>{experience.title.toUpperCase()}</span>
+            )}
           </h3>
           <span className="text-sm text-green-300 font-medium font-jetbrains-mono">
             [{experience.duration}]
@@ -31,9 +41,20 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
         </div>
         
         {(experience.company || experience.organization) && (
-          <p className="text-green-300 font-medium mb-3 font-share-tech-mono">
-            @ {(experience.company || experience.organization)?.toUpperCase()}
-          </p>
+          <div className="text-green-300 font-medium mb-3 font-share-tech-mono">
+            @ {experience.companyUrl || experience.organizationUrl ? (
+              <a
+                href={experience.companyUrl || experience.organizationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-matrix-400 transition-colors duration-200 hover:underline"
+              >
+                {(experience.company || experience.organization)?.toUpperCase()}
+              </a>
+            ) : (
+              <span>{(experience.company || experience.organization)?.toUpperCase()}</span>
+            )}
+          </div>
         )}
         
         <p className="text-green-200 mb-4 leading-relaxed font-jetbrains-mono border-l-2 border-matrix-400 pl-3">
