@@ -126,7 +126,7 @@ export const professionalExperience: Experience[] = [
     technologies: ["Python", "C++", "C", "Data Analysis", "SQL"],
     image: "/images/teledyne.jpg",
     highlights: [
-      "Peveloped data analysis tools to visualize UAV test data and identify performance issues",
+      "Developed data analysis tools to visualize UAV test data and identify performance issues",
       "Improved automated test infrastructure and test manufacturing processes"
     ]
   }
