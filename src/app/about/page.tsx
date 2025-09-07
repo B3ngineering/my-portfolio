@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { personalInfo } from "@/data/portfolio";
 
-export default function AboutPage() : JSX.Element {
+export default function AboutPage(){
   return (
     <div className="bg-black min-h-screen">
       {/* Hero Section */}
