@@ -64,7 +64,7 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       className={`font-share-tech-mono ${
-                        pathname === item.href ? 'bg-matrix-400 text-black' : 'text-green-300 hover:text-matrix-400'
+                        pathname === item.href ? 'bg-matrix-400 text-white' : 'text-green-300 hover:text-matrix-400'
                       }`}
                     >
                       &gt; {item.name.toUpperCase().replace(' ', '_')}

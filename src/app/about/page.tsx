@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { personalInfo } from "@/data/portfolio";
 
-export default function AboutPage() {
+export default function AboutPage() : JSX.Element {
   return (
     <div className="bg-black min-h-screen">
       {/* Hero Section */}
@@ -62,7 +62,7 @@ export default function AboutPage() {
       {/* Bio Section */}
       <section className="py-16 sm:py-20 bg-terminal-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-black border-2 border-matrix-400 p-8 shadow-matrix">
+          <div className="bg-black border-2 border-matrix-400 p-8 shadow-matrix text-white">
             <h2 className="text-3xl font-orbitron font-bold text-matrix-400 mb-6 text-center">
               <span className="text-green-300">[</span>WHY_ME.MD<span className="text-green-300">]</span>
             </h2>

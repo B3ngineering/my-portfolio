@@ -86,7 +86,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
               {experience.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="inline-block bg-terminal-100 border border-green-400 text-green-400 text-xs px-2 py-1 font-jetbrains-mono hover:bg-green-400 hover:text-black transition-colors duration-200"
+                  className="inline-block bg-terminal-100 border border-green-400 text-green-400 text-xs px-2 py-1 font-jetbrains-mono hover:bg-green-400 hover:text-white transition-colors duration-200"
                 >
                   {tech}
                 </span>
